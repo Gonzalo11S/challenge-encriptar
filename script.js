@@ -21,13 +21,22 @@ function encriptarTexto() {
   const texto = inputTexto.value;
   const textoEncriptado = encriptar(texto); 
   resultado.textContent = textoEncriptado; 
-  //NUEVO-----------
+
   botonCopiar.textContent = "Copiar";
   contenedorResultado.appendChild(botonCopiar);
+  //NUEVO-----------
 
-
-  //--
-  }
+  botonCopiar.addEventListener('click', () => {
+    navigator.clipboard.writeText(resultado.textContent)
+      .then(() => {
+        mostrarToast();// Mensaje opcional de confirmación
+      })
+      .catch(err => {
+        console.error('Error al copiar al portapapeles: ', err);
+    });
+   //NUEVO-----------  
+  });
+}
 
 function desencriptarTexto() {
   const texto = inputTexto.value;
@@ -40,6 +49,13 @@ function ocultarResultado() {
   textoResultado.style.display = 'none';
 }
 
+function mostrarToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000); // El toast se muestra durante 3 segundos
+}
   
 const inputTexto = document.getElementById('principal_texto');
 const resultado = document.getElementById('resultado_texto');

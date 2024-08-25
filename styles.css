@@ -5,7 +5,7 @@
 
     --blanco: #ffffff;
     --oscuro: #343A40;
-    --gris: #495057;
+    --gris: #D8DFE8;
 }
 
 
@@ -30,7 +30,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 0px 10px; 
-    margin-top: 25%;
+    margin-top: 15%;
 }
 
 .principal_botones_posicion{
@@ -41,10 +41,27 @@
     grid-column: 1/3;
 }
 
+#boton_encriptar{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 15px;
+    border-radius: 20px;
+    border-color: var(--oscuro);
+    border-width: 1.5px;
+}
+
+#boton_desencriptar{
+    background-color: var(--gris);
+    padding: 15px;
+    border-radius: 20px;
+    border-color: var(--secundario);
+    border-width: 1.5px;
+}
+
 h5{
-    font-size: .7rem;
+    font-size: 1rem;
     color: var(--gris);
-    font-weight: 400;
+    font-weight: 800;
 }
 
 /*-------------------------------------*/
@@ -56,11 +73,15 @@ h5{
     align-items: center;
 
     background-color: var(--blanco);
-    border-radius: 70px;
     padding: 25% 0% 65% 0%;
     width: auto;
     min-width: 300px;
     max-width: 500px;
+    border-width: 1px;
+    border-color: var(--secundario);
+    border-style: solid; 
+    border-radius: 70px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .resultado_contenedor_imagen{
@@ -88,19 +109,63 @@ h5{
 }
 
 .mi-boton-estilizado {
-    margin-top: 50%;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 15px;
+    border-radius: 20px;
+    border-color: var(--oscuro);
+    border-width: 1.5px;
   }
   
   .mi-boton-estilizado:hover {
-    background-color: #45a049;
+    background-color: var(--gris);
+  }
+  
+  @media (max-width: 900px) {
+    
+    .contenedor{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .principal_botones{
+        margin: 0px 0px 20px 0px;
+    }
+    .resultado_contenedor{
+        padding: 0px;
+    }
+    .resultado_contenedor_imagen{
+        margin: 0px;
+    }
+  }
+
+
+
+
+
+
+  /* ----------- PORTAPAPELES ---------------*/
+  .toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    box-shadow: 0px 0px 10px 0px #000;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+  }
+  
+  .toast.show {
+    visibility: visible;
+    opacity: 1;
   }
   
